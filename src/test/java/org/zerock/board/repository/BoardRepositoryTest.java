@@ -60,7 +60,7 @@ class BoardRepositoryTest {
         }
     }*/
 
-    //목록화면
+/*    //목록화면
     @Test
     public void testWithReplyCount(){
         PageRequest pageable = PageRequest.of(0,10, Sort.by("bno").descending());
@@ -70,5 +70,12 @@ class BoardRepositoryTest {
             Object[] arr = (Object[]) row;
             System.out.println(Arrays.toString(arr));
         });
+    }*/
+
+    @Test
+    public void testRead3(){
+        Object result = boardRepository.getBoardByBno(100L);
+        Object[] arr = (Object[]) result;
+        System.out.println(Arrays.toString(arr));
     }
 }
