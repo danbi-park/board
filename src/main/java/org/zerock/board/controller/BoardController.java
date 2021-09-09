@@ -18,18 +18,18 @@ import org.zerock.board.service.BoardService;
 @Log4j2
 @RequiredArgsConstructor
 public class BoardController {
-    final private BoardService boardService;
+     private final BoardService boardService;
 
     @GetMapping({"","/","/list"})
     public String boardList(PageRequestDTO pageRequestDTO, Model model){
-        log.info("/board/list...");
-        log.info(">>>>>>>>>>>>>>>>>" +pageRequestDTO);
+/*        log.info("/board/list...");
+        log.info(">>>>>>>>>>>>>>>>>" +pageRequestDTO);*/
         model.addAttribute("result", boardService.getList(pageRequestDTO));
 
-        return "/index";
+        return "/board/list";
     }
 
-   /* @GetMapping("/register")
+    @GetMapping("/register")
     public void register(){
     }
 
@@ -45,13 +45,13 @@ public class BoardController {
     }
 
 
-   *//* @GetMapping({"/read","/modify"})
+/*    @GetMapping({"/read","/modify"})
     public void read(Long bno, Model model,
                      @ModelAttribute("requestDTO") PageRequestDTO requestDTO) {
         BoardDTO dto = boardService.read(bno);
         model.addAttribute("dto", dto);
-    }
-    *//*
+    }*/
+
 
 
     @PostMapping("/modify")
@@ -68,7 +68,7 @@ public class BoardController {
         return "redirect:/board/read";
     }
 
-*//*    @PostMapping("/remove")                             //only one time
+/*    @PostMapping("/remove")                             //only one time
     public String remove(Long bno, RedirectAttributes redirectAttributes,
                          PageRequestDTO pageRequestDTO) {
         boardService.remove(bno);
@@ -81,6 +81,5 @@ public class BoardController {
         redirectAttributes.addAttribute("keyword", pageRequestDTO.getKeyword());
 
         return "redirect:/board/list";
-    }*//*
-*/
+    }*/
 }

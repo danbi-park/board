@@ -6,8 +6,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.zerock.board.entity.Board;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
+import java.util.Optional;
 
 @SpringBootTest
 class BoardRepositoryTest {
@@ -34,12 +37,14 @@ class BoardRepositoryTest {
 /*    @Transactional
     @Test
     public void testRead1(){
+
         Optional<Board> result = boardRepository.findById(100L);
         if (result.isPresent()){
             Board board = result.get();
             System.out.println(board);
             System.out.println(board.getWriter());
         }
+
     }*/
 
 
@@ -51,6 +56,7 @@ class BoardRepositoryTest {
         System.out.println(Arrays.toString(arr));
     }*/
 
+
 /*    @Test
     public void testReadWithReply(){
         List<Object[]> result = boardRepository.getBoardWithWriter(100L);
@@ -58,7 +64,9 @@ class BoardRepositoryTest {
         for (Object[] arr : result){
             System.out.println(Arrays.toString(arr));
         }
-    }*/
+    }
+*/
+
 
 /*    //목록화면
     @Test
@@ -70,7 +78,8 @@ class BoardRepositoryTest {
             Object[] arr = (Object[]) row;
             System.out.println(Arrays.toString(arr));
         });
-    }*/
+    }
+*/
 
     @Test
     public void testRead3(){

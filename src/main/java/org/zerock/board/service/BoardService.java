@@ -8,7 +8,7 @@ import org.zerock.board.dto.PageResultDTO;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 
-//확장성 재사용성을 위해 인터페이스로 작성
+//확장성 재사용성을 위해 인터페이스로 작성 -> 메서드만
 public interface BoardService {
     Long register(BoardDTO dto);
 
