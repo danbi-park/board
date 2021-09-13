@@ -28,5 +28,5 @@ public class BoardDTO {
 
     private LocalDateTime regDate;
 
-    private int replyCnt; //해당 게시글의 댓글 수
+    private int replyCount; //해당 게시글의 댓글 수
 }
