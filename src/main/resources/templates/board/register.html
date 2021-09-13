@@ -1,4 +1,3 @@
-<!--
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
@@ -6,22 +5,22 @@
         <h1 class="mt-4">board Register Page</h1>
         <form th:action="@{/board/register}" th:method="post">
             <div class="form-group">
-                <label>제목</label>
+                <label>Title</label>
                 <input type="text" class="form-control" name="title"
                        placeholder="Enter title">
             </div>
             <div class="form-group">
-                <label>내용</label>
+                <label>Content</label>
                 <textarea class="form-control" name="content"
                           rows="5"></textarea>
             </div>
             <div class="form-group">
-                <label>작성자</label>
-                <input type="text" class="form-control" name="writer"
-                       placeholder="Enter Writer">
+                <label>Writer Email</label>
+                <input type="text" class="form-control" name="writerEmail"
+                       placeholder="Enter writer email">
             </div>
             <div style="margin-bottom: 20px;"></div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </th:block>
-</th:block>-->
+</th:block>

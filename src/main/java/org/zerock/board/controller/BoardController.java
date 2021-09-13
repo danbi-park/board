@@ -22,8 +22,7 @@ public class BoardController {
 
     @GetMapping({"","/","/list"})
     public String boardList(PageRequestDTO pageRequestDTO, Model model){
-/*        log.info("/board/list...");
-        log.info(">>>>>>>>>>>>>>>>>" +pageRequestDTO);*/
+        log.info("/board/list...");
         model.addAttribute("result", boardService.getList(pageRequestDTO));
 
         return "/board/list";
@@ -31,6 +30,7 @@ public class BoardController {
 
     @GetMapping("/register")
     public void register(){
+        log.info("register...");
     }
 
 
@@ -39,18 +39,21 @@ public class BoardController {
     public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes){
         log.info("registerPost...");
         Long bno = boardService.register(dto);
+        log.info("register bno: "+bno);
         redirectAttributes.addFlashAttribute("msg", bno);
         redirectAttributes.addFlashAttribute("noti","등록");
         return "redirect:/board/list";
     }
 
 
-/*    @GetMapping({"/read","/modify"})
+    @GetMapping({"/read","/modify"})
     public void read(Long bno, Model model,
                      @ModelAttribute("requestDTO") PageRequestDTO requestDTO) {
-        BoardDTO dto = boardService.read(bno);
-        model.addAttribute("dto", dto);
-    }*/
+        log.info("bno: "+bno);
+        BoardDTO boardDTO = boardService.get(bno);
+        log.info(boardDTO);
+        model.addAttribute("dto", boardDTO);
+    }
 
 
 
@@ -59,27 +62,26 @@ public class BoardController {
                          @ModelAttribute("requestDTO") PageRequestDTO requestDTO){
         log.info("post modify.............................");
         log.info("dto: " + dto);
-        boardService.modify(dto); //save되서 덮어씀
+        boardService.modify(dto);
         redirectAttributes.addAttribute("page", requestDTO.getPage());
+        redirectAttributes.addAttribute("bno", dto.getBno());
         redirectAttributes.addAttribute("type", requestDTO.getType());
         redirectAttributes.addAttribute("keyword", requestDTO.getKeyword());
-        redirectAttributes.addAttribute("Bno", dto.getBno()); //글번호도 넘겨줌, flash 안씀
 
         return "redirect:/board/read";
     }
 
-/*    @PostMapping("/remove")                             //only one time
-    public String remove(Long bno, RedirectAttributes redirectAttributes,
-                         PageRequestDTO pageRequestDTO) {
-        boardService.remove(bno);
+    @PostMapping("/remove")
+    public String remove(Long bno, RedirectAttributes redirectAttributes) {
+        log.info("bno: "+bno);
+        boardService.removeWithReplies(bno);
         redirectAttributes.addFlashAttribute("msg",bno);
         redirectAttributes.addFlashAttribute("noti","삭제");
 
-//      추가
-        redirectAttributes.addAttribute("page", pageRequestDTO.getPage());
-        redirectAttributes.addAttribute("type", pageRequestDTO.getType());
-        redirectAttributes.addAttribute("keyword", pageRequestDTO.getKeyword());
-
         return "redirect:/board/list";
-    }*/
+//      추가
+//        redirectAttributes.addAttribute("page", pageRequestDTO.getPage());
+//        redirectAttributes.addAttribute("type", pageRequestDTO.getType());
+//        redirectAttributes.addAttribute("keyword", pageRequestDTO.getKeyword());
+    }
 }

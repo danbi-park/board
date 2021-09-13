@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.zerock.board.entity.Board;
 
@@ -81,10 +82,28 @@ class BoardRepositoryTest {
     }
 */
 
-    @Test
+/*    @Test
     public void testRead3(){
         Object result = boardRepository.getBoardByBno(100L);
         Object[] arr = (Object[]) result;
         System.out.println(Arrays.toString(arr));
+    }*/
+
+    @Test
+    public void testSearch1(){
+        boardRepository.search1();
+    }
+
+    @Test
+    public void testSearchPage(){
+        Pageable pageable = PageRequest.of(1,10,Sort.by("bno").descending());
+        Page<Object[]> result = boardRepository.searchPage("t","1",pageable);
+    }
+
+    @Test
+    public void testSearchPage1(){
+        Pageable pageable = PageRequest.of(1,10,Sort.by("bno").descending()
+                .and(Sort.by("title").ascending()));
+        Page<Object[]> result = boardRepository.searchPage("t","1",pageable);
     }
 }
