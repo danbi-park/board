@@ -8,7 +8,6 @@ import org.zerock.board.entity.Reply;
 import org.zerock.board.repository.ReplyRepository;
 
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,19 +31,6 @@ public class ReplyServiceImpl implements ReplyService{
         return result.stream().map(reply -> entityToDTO(reply)).collect(Collectors.toList());
     }
 
-
-/*    @Override
-    public List<ReplyDTO> getList(Long bno) {
-        List<Reply> result = replyRepository
-                .getRepliesByBoardOrderByRno(Board.builder().bno(bno).build());
-        return result.stream().map(
-                new Function<Reply, ReplyDTO>() {
-            @Override
-            public ReplyDTO apply(Reply reply){
-                return entityToDTO(reply);
-            }
-        }).collect(Collectors.toList());
-    }*/
 
     @Override
     public void modify(ReplyDTO replyDTO) {

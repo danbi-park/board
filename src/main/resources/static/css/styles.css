@@ -4540,18 +4540,10 @@ textarea.form-control-lg {
   padding: 1rem 1rem;
 }
 
-.card-title {
-  margin-bottom: 0.5rem;
-}
 
-.card-subtitle {
-  margin-top: -0.25rem;
+/*.card-text:last-child {
   margin-bottom: 0;
-}
-
-.card-text:last-child {
-  margin-bottom: 0;
-}
+}*/
 
 .card-link + .card-link {
   margin-left: 1rem;
@@ -4883,7 +4875,9 @@ textarea.form-control-lg {
   font-size: 0.75em;
   font-weight: 700;
   line-height: 1;
-  color: #fff;
+  color: #ffff;
+  background: #fc5203;
+  cursor: pointer;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

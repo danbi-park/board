@@ -8,7 +8,6 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.JPQLQuery;
 import lombok.extern.log4j.Log4j2;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +21,6 @@ import org.zerock.board.entity.QReply;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static javax.swing.text.html.HTML.Tag.SELECT;
 
 @Log4j2
 public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport implements SearchBoardRepository{

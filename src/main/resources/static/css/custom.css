@@ -1,4 +1,4 @@
-.tr-list{
+.tr-list, replyList{
     cursor: pointer;
 }
 .tr-list:hover{
@@ -17,3 +17,42 @@ select {
     -moz-appearance: none;
     appearance: none;
 }
+
+.replyCount {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+/* 댓글 스타일 */
+.card-body{
+    border:1px solid gray;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+  background: light-gray;
+}
+
+.card-subtitle {
+  margin-top: -0.25rem;
+  margin-bottom: 0;
+  color: blue;
+}
+
+/* 날짜 */
+.card-text {
+            margin-top: -0.5rem;
+            margin-bottom: 0;
+            color: gray;
+          }

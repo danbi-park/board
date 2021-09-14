@@ -10,12 +10,10 @@ import org.zerock.board.dto.PageRequestDTO;
 import org.zerock.board.dto.PageResultDTO;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
-import org.zerock.board.entity.Reply;
 import org.zerock.board.repository.BoardRepository;
 import org.zerock.board.repository.ReplyRepository;
 
 import javax.transaction.Transactional;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -86,7 +84,8 @@ public class BoardServiceImpl implements BoardService {
         }
     }
 
-/*    @Transactional
+/*  위와 같은 내용
+    @Transactional
     @Override
     public void modify(BoardDTO boardDTO) {
         Board board = repository.getById(boardDTO.getBno());

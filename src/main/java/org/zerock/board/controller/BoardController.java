@@ -22,7 +22,6 @@ public class BoardController {
 
     @GetMapping({"","/","/list"})
     public String boardList(PageRequestDTO pageRequestDTO, Model model){
-        log.info("/board/list...");
         model.addAttribute("result", boardService.getList(pageRequestDTO));
 
         return "/board/list";
@@ -39,7 +38,6 @@ public class BoardController {
     public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes){
         log.info("registerPost...");
         Long bno = boardService.register(dto);
-        log.info("register bno: "+bno);
         redirectAttributes.addFlashAttribute("msg", bno);
         redirectAttributes.addFlashAttribute("noti","등록");
         return "redirect:/board/list";
@@ -49,9 +47,7 @@ public class BoardController {
     @GetMapping({"/read","/modify"})
     public void read(Long bno, Model model,
                      @ModelAttribute("requestDTO") PageRequestDTO requestDTO) {
-        log.info("bno: "+bno);
         BoardDTO boardDTO = boardService.get(bno);
-        log.info(boardDTO);
         model.addAttribute("dto", boardDTO);
     }
 
